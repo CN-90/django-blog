@@ -2,15 +2,12 @@
 
 <li>
   <article class="post">
-    <a href="{% url "post_detail_page" "Ilya-Repin" %}">
-      <img src="{% static "blog/images/02.jpg"%}" alt="">
+    <a href="{% url "post_detail_page" post.slug %}">
+      <img src="{% static "blog/images/"|add:post.image %}" alt="{{post.title}}">
       <div class="post__content">
-        <h3>Ilya Repin</h3>
+        <h3>{{post.title}}</h3>
         <p>
-          was a Ukrainian-born Russian[2] Imperial realist painter. He was the
-          most renowned Russian artists of the 19th century, when his position
-          in the world of art was comparable to that of Leo Tolstoy in
-          literature.
+          {{post.excerpt|slice:":200"}}...
         </p>
       </div>
     </a>
